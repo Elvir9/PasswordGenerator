@@ -5,12 +5,14 @@
 
       <div class="field">
         <label>Length</label>
+        <!-- Event binding-->
         <input class="input" (input)="onChangeLength($event.target.value)" />
       </div>
 
       <div class="field">
         <div class="control">
           <label class="checkbox">
+            <!-- Event binding-->
             <input (change)="onChangeUseLetters()" type="checkbox" />
             Use Letters
           </label>
@@ -20,6 +22,7 @@
       <div class="field">
         <div class="control">
           <label class="checkbox">
+            <!-- Event binding-->
             <input (change)="onChangeUseNumbers()" type="checkbox" />
             Use Numbers
           </label>
@@ -29,28 +32,43 @@
       <div class="field">
         <div class="control">
           <label class="checkbox">
+            <!-- Event binding-->
             <input (change)="onChangeUseSymbols()" type="checkbox" />
             Use Symbols
           </label>
         </div>
       </div>
 
-      <button
-        [disabled]="
+      <!--  [ngModel]="
           !(
             length != 0 &&
             (includeUseLetters || includeUseNumbers || includeUseNumbers)
           )
-        "
-        (click)="onButtonClick()"
-        class="button is-link is-fullwidth"
-      >
+        " -->
+
+      <!-- ngModel (dataBinding)-->
+      <!-- [disabled]="
+      !(
+        length != 0 &&
+        (includeUseLetters || includeUseNumbers || includeUseNumbers)
+      )
+    " -->
+      <!-- -->
+      <!-- Property Binding down below (39-45 linija code-a)-->
+      <!-- Event binding (51-53)-->
+      <button [disabled]="
+      !(
+        length != 0 &&
+        (includeUseLetters || includeUseNumbers || includeUseNumbers)
+      )
+    " (click)="onButtonClick()" class="button is-link is-fullwidth">
         Generate!
       </button>
 
       <div class="box" *ngIf="password">
-        <label>Your Password</label>
-        <input class="input" [value]="password" />
+        <label>{{ yourPassword }}</label>
+        <!-- String intrepolation-->
+        <input class="input" name="value" [(ngModel)]="password" />
       </div>
     </div>
   </div>

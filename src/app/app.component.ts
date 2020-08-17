@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   length = 0;
   password = '';
+  yourPassword = 'Your password is: '; // For string interpolation
   includeUseLetters = false;
   includeUseNumbers = false;
   includeUseSymbols = false;
